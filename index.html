@@ -43,7 +43,7 @@ a{color:inherit;text-decoration:none}
 .heros::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,16,.55) 0%,rgba(11,9,16,.15) 40%,rgba(11,9,16,.35) 75%,var(--nuit) 100%);z-index:-1}
 .heros .page{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%}
 h1{font-size:clamp(42px,4.3vw,62px);line-height:1.02;letter-spacing:-.035em;font-weight:700}
-@media (min-width:861px){h1 .ligne{display:block}}
+h1 .ligne{display:block}
 h1{text-wrap:balance}
 .sous{font-size:clamp(18px,1.6vw,21px);color:#E3D8D1;max-width:520px;margin-top:22px}
 .actions{display:flex;align-items:center;gap:18px;margin-top:34px;flex-wrap:wrap}
@@ -122,6 +122,7 @@ footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer nav{display:flex;gap:22px;flex-wrap:wrap}
 footer a:hover{color:var(--texte)}
 
+.vitrine{display:contents}
 /* apparition */
 .monte{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .monte.vu{opacity:1;transform:none}
@@ -142,6 +143,42 @@ footer a:hover{color:var(--texte)}
   .etapes{grid-template-columns:1fr}
   section{padding:84px 0}
   .noms{gap:14px}
+}
+
+/* ===== téléphone, refait façon DressCode ===== */
+@media (max-width:860px){
+  body{font-size:17px}
+  .page{padding:0 20px}
+  .heros{padding:96px 0 0}
+  h1{font-size:40px;line-height:1.05}
+  .sous{font-size:17px;margin-top:16px}
+  .actions{margin-top:24px;gap:12px}
+  .scene{height:auto;margin:36px -20px 0;padding:28px 0 0;justify-content:center;background:radial-gradient(70% 60% at 50% 70%,rgba(244,164,126,.28),transparent 70%)}
+  .scene .tel{width:230px}
+  .scene .c1{left:2%;bottom:0;height:34%}
+  .scene .c2{right:2%;bottom:4%;height:30%}
+  section{padding:72px 0}
+  h2{font-size:36px}
+  .intro{font-size:17px}
+  .fonctions{gap:56px;margin-top:40px}
+  .fonction,.fonction.large{background:none;border:0;border-radius:0;padding:0;min-height:0;overflow:visible;display:block}
+  .fonction h3{font-size:26px}
+  .fonction p{font-size:17px}
+  .vitrine{display:flex;justify-content:center;align-items:flex-start;height:420px;margin-top:22px;border-radius:26px;overflow:hidden;padding-top:34px;border:1px solid var(--trait);
+    background:radial-gradient(90% 70% at 50% 100%,rgba(244,164,126,.30),transparent 65%),linear-gradient(180deg,#1d1722,#120e16)}
+  .vitrine .tel,.fonction .vitrine .tel,.fonction.large .vitrine .tel{width:235px;margin:0;filter:drop-shadow(0 24px 30px rgba(0,0,0,.6))}
+  .fonction:not(:has(.vitrine)){border:1px solid var(--trait);border-radius:24px;padding:26px 22px;background:linear-gradient(180deg,var(--carte),var(--nuit2))}
+  .bulles{margin-top:18px}
+  .etapes{gap:0;margin-top:34px}
+  .etape{display:grid;grid-template-columns:auto 1fr;column-gap:18px;padding:22px 0}
+  .etape .rond{grid-row:span 2;width:auto;height:auto;border:0;background:none;font-size:64px;line-height:.9;font-weight:700;color:transparent;background-image:linear-gradient(180deg,#fff,var(--peche));-webkit-background-clip:text;background-clip:text}
+  .etape h3{margin-top:4px;font-size:21px}
+  .etape p{margin-top:4px}
+  .miray-bande{margin-top:34px;padding:34px 10px 0}
+  .faq{margin-top:26px}
+  summary{font-size:17px;padding:20px 0}
+  .fin{padding-top:96px}
+  .fin .victoire{margin-top:30px}
 }
 </style>
 </head>
@@ -194,19 +231,19 @@ footer a:hover{color:var(--texte)}
               <div class="bulle lui"><b>MIRAY</b>Celui dont tu me parlais lundi ? Tu l’as préparé, tu vas gérer.</div>
             </div>
           </div>
-          <div class="tel"><div class="ecran"><img src="img/ecran-appel.jpg" alt="Un appel vocal avec ton Miray"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+          <div class="vitrine"><div class="tel"><div class="ecran"><img src="img/ecran-appel.jpg" alt="Un appel vocal avec ton Miray"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div></div>
         </article>
         <article class="fonction monte">
           <span class="num">02/05</span>
           <h3>Des petits défis, de grands changements</h3>
           <p>Chaque jour, des quêtes à ton rythme. Il suit tout seul tes pas, tes séances et ton temps d’écran.</p>
-          <div class="tel"><div class="ecran"><img src="img/ecran-objectifs.jpg" alt="Les quêtes du jour"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+          <div class="vitrine"><div class="tel"><div class="ecran"><img src="img/ecran-objectifs.jpg" alt="Les quêtes du jour"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div></div>
         </article>
         <article class="fonction monte">
           <span class="num">03/05</span>
           <h3>Il t’accompagne dans ta progression</h3>
           <p>Jours tenus, score de la semaine, tes 4 piliers. Une journée ratée n’efface rien : on reprend dès le lendemain.</p>
-          <div class="tel"><div class="ecran"><img src="img/ecran-progres.jpg" alt="Tes progrès de la semaine"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+          <div class="vitrine"><div class="tel"><div class="ecran"><img src="img/ecran-progres.jpg" alt="Tes progrès de la semaine"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div></div>
         </article>
         <article class="fonction monte" style="min-height:auto;padding-bottom:34px">
           <span class="num">04/05</span>
