@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miray, ton ami du quotidien sur iPhone</title>
+<meta name="description" content="Miray est ton ami du quotidien sur iPhone. Tu lui dis ce que tu veux changer : sommeil, sport, concentration, temps d'écran. Il est là chaque jour pour t'aider à le tenir.">
+<meta property="og:title" content="Miray, ton ami du quotidien">
+<meta property="og:description" content="Tu sais ce que tu veux changer. Miray t'aide à le tenir, chaque jour.">
+<meta property="og:image" content="img/panorama.jpg">
+<meta name="apple-itunes-app" content="app-id=6835616990">
+<link rel="icon" href="img/icone.png">
+<link rel="apple-touch-icon" href="img/icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0b0910; --nuit2:#141019; --carte:#1a1520; --trait:rgba(255,255,255,.09);
+  --texte:#F5ECE6; --doux:#B9ADA6; --peche:#F4A47E; --peche-clair:#FFD9BC; --creme:#FFE2B4;
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--nuit);color:var(--texte);font-family:-apple-system,"SF Pro Display",Inter,system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.page{max-width:1160px;margin:0 auto;padding:0 24px}
+.degrade{background:linear-gradient(180deg,#fff 10%,var(--creme) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* en-tête */
+.entete{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,backdrop-filter .3s}
+.entete.plein{background:rgba(11,9,16,.72);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--trait)}
+.entete .page{display:flex;align-items:center;justify-content:space-between;height:68px}
+.marque{display:flex;align-items:flex-end;gap:2px;font-weight:700;font-size:24px;letter-spacing:-.5px}
+.marque img{height:20px;width:auto;margin-bottom:4px}
+.btn-petit{background:var(--texte);color:#140f0c;font-weight:600;font-size:15px;padding:10px 18px;border-radius:999px;transition:transform .2s}
+.btn-petit:hover{transform:scale(1.04)}
+
+/* héros */
+.heros{position:relative;min-height:100svh;display:flex;align-items:center;padding:120px 0 0;overflow:hidden}
+.heros::before{content:"";position:absolute;inset:0;background:url(img/panorama.jpg) center 70%/cover;z-index:-2}
+.heros::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,16,.55) 0%,rgba(11,9,16,.15) 40%,rgba(11,9,16,.35) 75%,var(--nuit) 100%);z-index:-1}
+.heros .page{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%}
+h1{font-size:clamp(42px,4.3vw,62px);line-height:1.02;letter-spacing:-.035em;font-weight:700}
+@media (min-width:861px){h1 .ligne{display:block}}
+h1{text-wrap:balance}
+.sous{font-size:clamp(18px,1.6vw,21px);color:#E3D8D1;max-width:520px;margin-top:22px}
+.actions{display:flex;align-items:center;gap:18px;margin-top:34px;flex-wrap:wrap}
+.appstore{display:inline-flex;align-items:center;gap:12px;background:#000;border:1px solid rgba(255,255,255,.28);color:#fff;padding:10px 22px 10px 18px;border-radius:14px;transition:transform .2s,box-shadow .2s}
+.appstore:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(244,164,126,.25)}
+.appstore svg{width:28px;height:28px}
+.appstore small{display:block;font-size:11px;line-height:1;opacity:.85}
+.appstore b{display:block;font-size:21px;line-height:1.1;font-weight:600;letter-spacing:-.3px}
+.essai{color:var(--doux);font-size:15px}
+.scene{position:relative;height:min(78svh,700px);display:flex;justify-content:center;align-items:flex-end}
+.tel{position:relative;width:min(320px,70vw);aspect-ratio:1350/2760;filter:drop-shadow(0 40px 60px rgba(0,0,0,.5))}
+.tel .ecran{position:absolute;left:5.33%;top:2.5%;width:89.33%;height:95%;border-radius:12%/6%;overflow:hidden;background:#000}
+.tel .ecran img{width:100%;height:100%;object-fit:cover}
+.tel .cadre{position:absolute;inset:0;width:100%;height:100%}
+.scene .compagnon{position:absolute;filter:drop-shadow(0 0 2px rgba(255,214,170,.5)) drop-shadow(0 0 40px rgba(255,170,130,.3)) drop-shadow(0 28px 34px rgba(0,0,0,.5))}
+.scene .c1{left:-4%;bottom:-2%;height:42%}
+.scene .c2{right:-2%;bottom:6%;height:36%}
+
+/* sections */
+section{padding:100px 0}
+.etiquette{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--peche);text-transform:uppercase}
+h2{font-size:clamp(36px,4.6vw,60px);line-height:1.05;letter-spacing:-.03em;font-weight:700;margin-top:12px}
+.intro{color:var(--doux);font-size:19px;max-width:620px;margin-top:18px}
+
+/* fonctions */
+.fonctions{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:56px}
+.fonction{background:radial-gradient(110% 55% at 50% 108%,rgba(244,164,126,.16),transparent 62%),linear-gradient(180deg,var(--carte),var(--nuit2));border:1px solid var(--trait);border-radius:var(--r);padding:34px 34px 0;overflow:hidden;display:flex;flex-direction:column;min-height:560px;position:relative}
+.num{font-size:13px;color:var(--peche);font-weight:600;letter-spacing:.08em}
+.fonction h3{font-size:28px;letter-spacing:-.02em;line-height:1.15;margin-top:10px}
+.fonction p{color:var(--doux);font-size:17px;margin-top:10px;max-width:420px}
+.fonction .tel{width:250px;margin:34px auto -120px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+.fonction.large{grid-column:1/-1;min-height:auto;flex-direction:row;align-items:center;gap:40px;padding:44px}
+.fonction.large .texte{flex:1}
+.fonction.large .tel{margin:0 0 -170px;width:260px;align-self:flex-end}
+.bulles{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.bulle{max-width:340px;padding:14px 18px;border-radius:20px;font-size:16px;line-height:1.4}
+.bulle.moi{align-self:flex-start;background:linear-gradient(180deg,#FFC9A3,var(--peche));color:#2a1408;border-bottom-left-radius:6px}
+.bulle.lui{align-self:flex-start;background:var(--texte);color:#1a1210;border-bottom-left-radius:6px;margin-left:28px}
+.bulle.lui b{display:block;font-size:12px;letter-spacing:.08em;color:#B9714B}
+
+/* étapes */
+.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.etape{border-top:1px solid var(--trait);padding-top:26px}
+.etape .rond{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:rgba(244,164,126,.14);color:var(--peche);border:1px solid rgba(244,164,126,.35)}
+.etape h3{font-size:22px;margin-top:18px;letter-spacing:-.01em}
+.etape p{color:var(--doux);margin-top:8px;font-size:16px}
+
+/* les Miray */
+.miray-bande{position:relative;margin-top:60px;border-radius:var(--r);overflow:hidden;border:1px solid var(--trait);padding:70px 20px 0;background:url(img/panorama.jpg) center 85%/cover}
+.miray-bande::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,9,16,.65),rgba(11,9,16,.1) 60%,rgba(11,9,16,.4))}
+.rangee{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:clamp(4px,2vw,26px)}
+.rangee img{height:clamp(100px,14vw,200px);width:auto;filter:drop-shadow(0 0 2px rgba(255,214,170,.45)) drop-shadow(0 22px 26px rgba(0,0,0,.5));transition:transform .35s cubic-bezier(.2,.9,.3,1.3)}
+.rangee img:hover{transform:translateY(-14px) scale(1.04)}
+.noms{position:relative;display:flex;justify-content:center;gap:26px;padding:26px 0 30px;color:#E3D8D1;font-size:15px;flex-wrap:wrap}
+.noms span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.noms .c::before{background:#F2EEEA}.noms .o::before{background:#1b1b1d;border:1px solid #666}.noms .m::before{background:#2c3a8f}
+
+/* questions */
+.faq{margin-top:46px;max-width:820px}
+details{border-bottom:1px solid var(--trait)}
+summary{list-style:none;cursor:pointer;padding:24px 0;font-size:19px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;font-weight:400;color:var(--peche);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--doux);font-size:17px;padding:0 0 24px;max-width:700px}
+
+/* fin */
+.fin{position:relative;text-align:center;padding:150px 0 0;overflow:hidden}
+.fin::before{content:"";position:absolute;inset:0;background:url(img/panorama.jpg) center bottom/cover;opacity:.9;z-index:-2}
+.fin::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--nuit) 0%,rgba(11,9,16,.35) 45%,rgba(11,9,16,.2) 100%);z-index:-1}
+.fin h2{max-width:780px;margin:12px auto 0}
+.fin .actions{justify-content:center}
+.fin .victoire{height:clamp(220px,32vw,380px);width:auto;margin:50px auto 0;filter:drop-shadow(0 0 3px rgba(255,214,170,.5)) drop-shadow(0 0 60px rgba(255,170,130,.35))}
+footer{border-top:1px solid var(--trait);padding:34px 0 46px;color:var(--doux);font-size:14px}
+footer .page{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer nav{display:flex;gap:22px;flex-wrap:wrap}
+footer a:hover{color:var(--texte)}
+
+/* apparition */
+.monte{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.monte.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.monte{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* téléphone */
+@media (max-width:860px){
+  .heros{padding-top:100px;min-height:auto}
+  .heros .page{grid-template-columns:1fr;gap:10px;text-align:left}
+  .scene{height:520px;margin-top:44px}
+  .rangee{flex-wrap:wrap;row-gap:10px}
+  .rangee img{height:118px}
+  .miray-bande{padding-top:40px}
+  .fonctions{grid-template-columns:1fr}
+  .fonction{min-height:520px;padding:28px 26px 0}
+  .fonction.large{flex-direction:column;padding:28px 26px 0;align-items:flex-start}
+  .fonction.large .tel{align-self:center;margin:24px auto -120px}
+  .etapes{grid-template-columns:1fr}
+  section{padding:84px 0}
+  .noms{gap:14px}
+}
+</style>
+</head>
+<body>
+
+<header class="entete" id="entete">
+  <div class="page">
+    <a class="marque" href="#"><img src="img/logo-m.png" alt="">iray</a>
+    <a class="btn-petit" href="https://apps.apple.com/app/id6835616990">Télécharger</a>
+  </div>
+</header>
+
+<main>
+  <section class="heros">
+    <div class="page">
+      <div class="monte">
+        <h1><span class="ligne">Tu sais ce que tu veux changer.</span> <span class="degrade ligne">Miray t’aide à le tenir.</span></h1>
+        <p class="sous">Ton ami du quotidien sur iPhone. Tu lui dis tes objectifs, il est là chaque jour : sommeil, sport, concentration, temps d’écran.</p>
+        <div class="actions">
+          <a class="appstore" href="https://apps.apple.com/app/id6835616990" aria-label="Télécharger sur l’App Store">
+            <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.37 12.62c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.38-.91-2.39-3.66zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28z"/></svg>
+            <span><small>Télécharger dans</small><b>l’App Store</b></span>
+          </a>
+          <span class="essai">7 jours offerts pour essayer</span>
+        </div>
+      </div>
+      <div class="scene monte">
+        <div class="tel"><div class="ecran"><img src="img/ecran-accueil.jpg" alt="L’accueil de Miray : ton Miray, ton score du jour et tes quêtes"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+        <img class="compagnon c1" src="img/miray-onyx-f.png" alt="">
+        <img class="compagnon c2" src="img/miray-ceramique.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="fonctions">
+    <div class="page">
+      <div class="monte">
+        <span class="etiquette">Ce que fait ton Miray</span>
+        <h2>Quelqu’un qui te tient.<br><span class="degrade">Tous les jours.</span></h2>
+        <p class="intro">Le problème, ce n’est pas de savoir quoi faire. C’est de tenir. Miray est là pour ça.</p>
+      </div>
+      <div class="fonctions">
+        <article class="fonction large monte">
+          <div class="texte">
+            <span class="num">01/05</span>
+            <h3>Parle-lui de tout, en confiance</h3>
+            <p>Écris-lui ou appelle-le à voix haute. Tes objectifs, tes journées, tes doutes. Il se souvient de ce que tu lui confies.</p>
+            <div class="bulles">
+              <div class="bulle moi">J’ai mon entretien demain…</div>
+              <div class="bulle lui"><b>MIRAY</b>Celui dont tu me parlais lundi ? Tu l’as préparé, tu vas gérer.</div>
+            </div>
+          </div>
+          <div class="tel"><div class="ecran"><img src="img/ecran-appel.jpg" alt="Un appel vocal avec ton Miray"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+        </article>
+        <article class="fonction monte">
+          <span class="num">02/05</span>
+          <h3>Des petits défis, de grands changements</h3>
+          <p>Chaque jour, des quêtes à ton rythme. Il suit tout seul tes pas, tes séances et ton temps d’écran.</p>
+          <div class="tel"><div class="ecran"><img src="img/ecran-objectifs.jpg" alt="Les quêtes du jour"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+        </article>
+        <article class="fonction monte">
+          <span class="num">03/05</span>
+          <h3>Il t’accompagne dans ta progression</h3>
+          <p>Jours tenus, score de la semaine, tes 4 piliers. Une journée ratée n’efface rien : on reprend dès le lendemain.</p>
+          <div class="tel"><div class="ecran"><img src="img/ecran-progres.jpg" alt="Tes progrès de la semaine"></div><img class="cadre" src="img/cadre-iphone.png" alt=""></div>
+        </article>
+        <article class="fonction monte" style="min-height:auto;padding-bottom:34px">
+          <span class="num">04/05</span>
+          <h3>Il te rappelle ta parole</h3>
+          <p>Sans te juger. « Tu m’as dit 23 h. Il est 23 h 40. » Le soir, il fait le bilan avec toi : ce que tu as tenu, ce qu’on change demain.</p>
+        </article>
+        <article class="fonction monte" style="min-height:auto;padding-bottom:34px">
+          <span class="num">05/05</span>
+          <h3>Quand le scroll gagne, il bloque</h3>
+          <p>Pour chaque objectif, tu choisis : un simple rappel, ou le blocage des applis et des réseaux qui te volent ta soirée, à l’heure que tu fixes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="page">
+      <div class="monte">
+        <span class="etiquette">Comment ça marche</span>
+        <h2>Trois pas, et il est là.</h2>
+      </div>
+      <div class="etapes">
+        <div class="etape monte"><div class="rond">1</div><h3>Choisis ton Miray</h3><p>Sa forme, sa voix, son nom et son caractère : strict, cool, doux, drôle ou sage.</p></div>
+        <div class="etape monte"><div class="rond">2</div><h3>Dis-lui tes objectifs</h3><p>Dormir plus tôt, bouger, te concentrer, lâcher ton téléphone. Une fois, et c’est tout.</p></div>
+        <div class="etape monte"><div class="rond">3</div><h3>Avance chaque jour</h3><p>Des petits défis, un bilan le soir, et quelqu’un qui croit en toi même les jours sans.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="page">
+      <div class="monte">
+        <span class="etiquette">Les Miray</span>
+        <h2>Un seul ami.<br><span class="degrade">Celui qui te ressemble.</span></h2>
+      </div>
+      <div class="miray-bande monte">
+        <div class="rangee">
+          <img src="img/miray-ceramique.png" alt="Miray Céramique">
+          <img src="img/miray-onyx-f.png" alt="Miray Onyx, version fille">
+          <img src="img/miray-midnight.png" alt="Miray Midnight">
+          <img src="img/miray-ceramique-f.png" alt="Miray Céramique, version fille">
+          <img src="img/miray-onyx.png" alt="Miray Onyx">
+          <img src="img/miray-midnight-f.png" alt="Miray Midnight, version fille">
+        </div>
+        <div class="noms"><span class="c">Céramique</span><span class="o">Onyx</span><span class="m">Midnight</span><span>En garçon ou en fille</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="page">
+      <div class="monte"><span class="etiquette">Questions fréquentes</span><h2>Tu te demandes peut-être…</h2></div>
+      <div class="faq monte">
+        <details><summary>Où télécharger Miray ?</summary><p>Sur l’App Store, pour iPhone. Tu as 7 jours offerts pour l’essayer.</p></details>
+        <details><summary>C’est quoi, un Miray ?</summary><p>Un petit ami en 3D que tu choisis et que tu nommes. Tu lui parles par écrit ou à voix haute, il suit tes objectifs avec toi et fait le bilan chaque soir.</p></details>
+        <details><summary>Il peut vraiment bloquer mes applis ?</summary><p>Oui, si tu le décides. Pour chaque objectif, tu choisis un simple rappel ou le blocage des applis à l’heure que tu fixes. C’est toi qui gardes la main.</p></details>
+        <details><summary>Que deviennent mes données ?</summary><p>Elles restent à toi. Chaque source se coupe en un geste, et tu peux tout consulter ou tout effacer depuis l’app. Les détails sont dans la <a href="https://wassim-07305.github.io/miray-assistance/confidentialite.html" style="text-decoration:underline">politique de confidentialité</a>.</p></details>
+        <details><summary>Comment résilier ?</summary><p>Dans les réglages de ton iPhone : ton nom, puis Abonnements, puis Miray. La résiliation prend effet à la fin de la période en cours.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="fin">
+    <div class="page monte">
+      <span class="etiquette">Ton Miray t’attend</span>
+      <h2>Tu ne grimperas<br><span class="degrade">plus jamais seul.</span></h2>
+      <div class="actions">
+        <a class="appstore" href="https://apps.apple.com/app/id6835616990" aria-label="Télécharger sur l’App Store">
+          <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.37 12.62c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.89 1.15 9.14.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.38-.91-2.39-3.66zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28z"/></svg>
+          <span><small>Télécharger dans</small><b>l’App Store</b></span>
+        </a>
+      </div>
+      <img class="victoire" src="img/miray-victoire.png" alt="Un Miray qui saute de joie">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="page">
+    <span>© 2026 Miray</span>
+    <nav>
+      <a href="https://wassim-07305.github.io/miray-assistance/">Aide</a>
+      <a href="https://wassim-07305.github.io/miray-assistance/confidentialite.html">Confidentialité</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Conditions d’utilisation</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const e = document.getElementById('entete');
+  const maj = () => e.classList.toggle('plein', scrollY > 30);
+  addEventListener('scroll', maj, { passive: true }); maj();
+  const o = new IntersectionObserver((l) => l.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('vu'); o.unobserve(x.target); } }), { threshold: 0.12 });
+  document.querySelectorAll('.monte').forEach((n) => o.observe(n));
+</script>
+</body>
+</html>
